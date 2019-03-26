@@ -1,4 +1,4 @@
-### Localstack SQS trigger Lambda function working example.
+# Localstack SQS trigger Lambda function working example.
 
 ## Install
 
