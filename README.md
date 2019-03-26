@@ -16,7 +16,7 @@ bash ./init.sh
 awslocal lambda invoke --function-name SQSTest outfile.txt
 
 # SQS Should trigger the function aswell
-awslocal sqs send-message --message-body="{}" --queue-url "http://70ec2857bf47:4576/queue/test_queue"
+awslocal sqs send-message --message-body="{}" --queue-url "http://localhost:4576/queue/test_queue"
 
 # Confirming the queue got the message
 awslocal sqs receive-message --queue-url "http://localhost:4576/queue/test_queue"
