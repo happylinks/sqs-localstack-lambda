@@ -11,16 +11,15 @@ docker-compose up
 Wait for localstack to be ready.
 
 ```
-bash ./init.sh
+make setup
 ```
 
 ### Confirm invoking the function works
-awslocal lambda invoke --function-name SQSTest outfile.txt
+`make invoke`
 
 ### SQS Should trigger the function aswell
-awslocal sqs send-message --message-body="{}" --queue-url "http://localhost:4576/queue/test_queue"
+`make send-message`
 
 ### Confirming the queue got the message
-awslocal sqs receive-message --queue-url "http://localhost:4576/queue/test_queue"
-
+`make receive-message`
 
