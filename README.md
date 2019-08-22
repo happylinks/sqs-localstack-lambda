@@ -11,7 +11,11 @@ docker-compose up
 Wait for localstack to be ready.
 
 ```
-make setup
+make setup-go
+```
+or 
+```
+make setup-js
 ```
 
 ### Confirm invoking the function works
@@ -23,3 +27,5 @@ make setup
 ### Confirming the queue got the message
 `make receive-message`
 
+### After updating your code
+`make update-go` or `make update-js`
