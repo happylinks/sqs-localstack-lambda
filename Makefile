@@ -53,11 +53,11 @@ create-event-source-mapping:
 
 .PHONY: invoke
 invoke:
-	@awslocal lambda invoke --function-name $(FUNCTION_NAME) --payload "{ \"name\": \"Michiel\" }" outfile.txt && cat outfile.txt | jq
+	@awslocal lambda invoke --function-name $(FUNCTION_NAME) --payload "{ \"records\": [{ \"body\": \"{ \\\"name\\\": \\\"Michiel\\\" }\" }] }" outfile.txt && cat outfile.txt | jq
 
 .PHONY: send-message
 send-message:
-	@awslocal sqs send-message --message-body "{\"name\": \"Michiel\"}" --queue-url "http://localhost:4576/queue/$(QUEUE_NAME)"
+	@awslocal sqs send-message --message-body "{ \"name\": \"Michiel\" }" --queue-url "http://localhost:4576/queue/$(QUEUE_NAME)"
 
 .PHONY: receive-message
 receive-message:
